@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_030508) do
+ActiveRecord::Schema.define(version: 2021_05_21_084314) do
 
   create_table "houses", force: :cascade do |t|
     t.string "property_name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2021_05_21_030508) do
     t.integer "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "house_id"
+    t.index ["house_id"], name: "index_stations_on_house_id"
   end
 
 end
