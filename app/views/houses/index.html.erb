@@ -1,2 +1,24 @@
-<h1>Houses#index</h1>
-<p>Find me in app/views/houses/index.html.erb</p>
+<h1>物件一覧</h1>
+<table>
+  <thead>
+    <th>物件名</th>
+    <th>賃料</th>
+    <th>住所</th>
+    <th class = "age_building">築年数</th>
+    <th class = "remarks">備考</th>
+  </thead>
+  <tbody>
+    <% @houses.each do |houses| %>
+      <tr>
+        <td><%= houses.property_name %></td>
+        <td><%= houses.rent %></td>
+        <td><%= houses.address %></td>
+        <td><%= houses.age %></td>
+        <td><%= houses.remarks %></td>
+        <td><%= link_to '編集', edit_house_path(houses.id) %></td>
+        <td><%= link_to '削除', house_path(houses.id), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '物件を投稿する', new_house_path %>
